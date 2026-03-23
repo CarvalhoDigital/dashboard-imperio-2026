@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Ação 2026 - Grupo Império Digital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a;
+            padding: 30px 20px;
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border: 1px solid #2a2a2a;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #D4AF37;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .header .subtitle {
+            font-size: 20px;
+            color: #D4AF37;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #888;
+            font-weight: 500;
+        }
+
+        .meta-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            padding: 35px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4);
+        }
+
+        .card-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            opacity: 0.95;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .card-value {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .card-sub {
+            font-size: 13px;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            color: #ffffff;
+            margin-bottom: 25px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            border-left: 5px solid #D4AF37;
+            padding-left: 18px;
+        }
+
+        .info-note {
+            background: #242424;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #D4AF37;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .info-note strong {
+            color: #D4AF37;
+            font-weight: 700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #242424;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        th {
+            background: linear-gradient(135deg, #D4AF37, #B8860B);
+            color: white;
+            padding: 18px 15px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: #2a2a2a;
+        }
+
+        .mes-nome {
+            font-weight: 700;
+            color: #D4AF37;
+            font-size: 15px;
+            width: 120px;
+        }
+
+        .auto-calc {
+            font-weight: 800;
+            color: #F4C430;
+        }
+
+        .total-row {
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            font-weight: 800;
+        }
+
+        .total-row td {
+            color: #D4AF37;
+            font-size: 15px;
+            padding: 20px 15px;
+            border-top: 2px solid #D4AF37;
+        }
+
+        .editable {
+            background: transparent;
+            border: 2px solid transparent;
+            color: #e0e0e0;
+            padding: 6px 10px;
+            border-radius: 6px;
+            width: 100%;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .editable:hover {
+            background: #2a2a2a;
+            border-color: #444;
+        }
+
+        .editable:focus {
+            outline: none;
+            background: #333;
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .status-select {
+            background: #2a2a2a;
+            color: #e0e0e0;
+            border: 2px solid #444;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+        }
+
+        .status-select:hover {
+            border-color: #D4AF37;
+        }
+
+        .status-select:focus {
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .status-select option {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 10px;
+        }
+
+        /* NOVO: Estilos para dropdown de distribuição */
+        .expand-btn {
+            background: #D4AF37;
+            color: #0a0a0a;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            margin-right: 10px;
+        }
+
+        .expand-btn:hover {
+            background: #F4C430;
+            transform: scale(1.1);
+        }
+
+        .expand-btn.active {
+            background: #F4C430;
+            transform: rotate(45deg);
+        }
+
+        .mes-nome-cell {
+            display: flex;
+            align-items: center;
+        }
+
+        .detalhes-row {
+            display: none;
+            background: #1f1f1f !important;
+        }
+
+        .detalhes-row.visible {
+            display: table-row;
+        }
+
+        .detalhes-row td {
+            padding: 25px !important;
+            border-top: 2px solid #D4AF37;
+        }
+
+        .distribuicao-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .distribuicao-card {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #D4AF37;
+        }
+
+        .distribuicao-card h5 {
+            color: #D4AF37;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .distribuicao-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 13px;
+            border-bottom: 1px solid #333;
+        }
+
+        .distribuicao-item:last-child {
+            border-bottom: none;
+        }
+
+        .distribuicao-item label {
+            color: #888;
+            font-weight: 600;
+        }
+
+        .distribuicao-item span {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .produto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .produto-card {
+            background: #242424;
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 4px solid #D4AF37;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .produto-card h4 {
+            color: #D4AF37;
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .produto-card .detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .produto-card .detail label {
+            color: #888;
+            font-weight: 600;
+        }
+
+        .produto-card .detail span {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+
+            .distribuicao-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏆 PLANO DE AÇÃO 2026</h1>
+            <div class="subtitle">Grupo Império Digital</div>
+            <p>Transformando Escritórios de Advocacia em Máquinas de Contratos</p>
+        </div>
+
+        <!-- Metas Anuais -->
+        <div class="section">
+            <div class="section-title">Metas Anuais 2026</div>
+            <div class="meta-cards">
+                <div class="card">
+                    <div class="card-label">Faturamento Total</div>
+                    <div class="card-value">R$ 3,09M</div>
+                    <div class="card-sub">Meta Anual</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">Contratos Novos</div>
+                    <div class="card-value">118</div>
+                    <div class="card-sub">+ 38 Renovações</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">MRR Final</div>
+                    <div class="card-value">R$ 265k</div>
+                    <div class="card-sub">De R$40k → R$265k</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">Reuniões</div>
+                    <div class="card-value">348</div>
+                    <div class="card-sub">29 por mês em média</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">Leads Qualificados</div>
+                    <div class="card-value">870</div>
+                    <div class="card-sub">72,5 por mês</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">Taxa de Conversão</div>
+                    <div class="card-value">16%</div>
+                    <div class="card-sub">Lead → Contrato</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabela de Metas Mensais EDITÁVEL COM DROPDOWN -->
+        <div class="section">
+            <div class="section-title">Metas Mensais - Acompanhamento Executivo</div>
+            <div class="info-note">
+                <strong>💡 Tabela Editável com Detalhamento:</strong> Clique no botão <strong>+</strong> ao lado do mês para ver a distribuição detalhada de contratos (MRR vs TCV, por produto). Clique em qualquer número para editar. Os totais são calculados automaticamente.
+            </div>
+            <table id="metasTable">
+                <thead>
+                    <tr>
+                        <th>Mês</th>
+                        <th>Receita (R$ mil)</th>
+                        <th>Contratos Novos</th>
+                        <th>Renovações</th>
+                        <th>Total</th>
+                        <th>Reuniões</th>
+                        <th>Leads</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JANEIRO -->
+                    <tr data-month="janeiro">
+                        <td class="mes-nome">
+                            <div class="mes-nome-cell">
+                                <button class="expand-btn" onclick="toggleDetalhes('janeiro')">+</button>
+                                Janeiro
+                            </div>
+                        </td>
+                        <td><input type="text" class="editable" value="77" data-col="receita"></td>
+                        <td><input type="number" class="editable" value="4" data-col="contratos"></td>
+                        <td><input type="number" class="editable" value="1" data-col="renovacoes"></td>
+                        <td class="auto-calc">5</td>
+                        <td><input type="number" class="editable" value="12" data-col="reunioes"></td>
+                        <td><input type="number" class="editable" value="30" data-col="leads"></td>
+                        <td>
+                            <select class="status-select" data-col="status">
+                                <option value="realizado" selected>✓ Realizado</option>
+                                <option value="andamento">→ Em Andamento</option>
+                                <option value="planejado">○ Planejado</option>
+                                <option value="atrasado">✗ Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="detalhes-row" id="detalhes-janeiro">
+                        <td colspan="8">
+                            <h4 style="color: #D4AF37; margin-bottom: 20px; font-size: 16px;">📊 Distribuição Detalhada - Janeiro</h4>
+                            <div class="distribuicao-grid">
+                                <div class="distribuicao-card">
+                                    <h5>💰 Modalidade</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR (Recorrente):</label>
+                                        <span>2 contratos (50%)</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>TCV (À Vista):</label>
+                                        <span>2 contratos (50%)</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📦 Por Produto (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Funil TCV:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Posicionamento MRR:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Funil MRR:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>🔁 Renovações</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Clientes renovados:</label>
+                                        <span>1 cliente</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Ticket médio:</label>
+                                        <span>R$ 2.000/mês</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- FEVEREIRO -->
+                    <tr data-month="fevereiro">
+                        <td class="mes-nome">
+                            <div class="mes-nome-cell">
+                                <button class="expand-btn" onclick="toggleDetalhes('fevereiro')">+</button>
+                                Fevereiro
+                            </div>
+                        </td>
+                        <td><input type="text" class="editable" value="69" data-col="receita"></td>
+                        <td><input type="number" class="editable" value="8" data-col="contratos"></td>
+                        <td><input type="number" class="editable" value="0" data-col="renovacoes"></td>
+                        <td class="auto-calc">8</td>
+                        <td><input type="number" class="editable" value="24" data-col="reunioes"></td>
+                        <td><input type="number" class="editable" value="60" data-col="leads"></td>
+                        <td>
+                            <select class="status-select" data-col="status">
+                                <option value="realizado" selected>✓ Realizado</option>
+                                <option value="andamento">→ Em Andamento</option>
+                                <option value="planejado">○ Planejado</option>
+                                <option value="atrasado">✗ Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="detalhes-row" id="detalhes-fevereiro">
+                        <td colspan="8">
+                            <h4 style="color: #D4AF37; margin-bottom: 20px; font-size: 16px;">📊 Distribuição Detalhada - Fevereiro</h4>
+                            <div class="distribuicao-grid">
+                                <div class="distribuicao-card">
+                                    <h5>💰 Modalidade</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR (Recorrente):</label>
+                                        <span>3 contratos (38%)</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>TCV (À Vista):</label>
+                                        <span>5 contratos (62%)</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📦 Por Produto (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Funil TCV:</label>
+                                        <span>5 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Posicionamento MRR:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Funil MRR:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>💡 Observações</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Foco:</label>
+                                        <span>TCV para caixa Q1</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Próximo mês:</label>
+                                        <span>Aumentar MRR</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- MARÇO -->
+                    <tr data-month="marco">
+                        <td class="mes-nome">
+                            <div class="mes-nome-cell">
+                                <button class="expand-btn" onclick="toggleDetalhes('marco')">+</button>
+                                Março
+                            </div>
+                        </td>
+                        <td><input type="text" class="editable" value="163" data-col="receita"></td>
+                        <td><input type="number" class="editable" value="12" data-col="contratos"></td>
+                        <td><input type="number" class="editable" value="0" data-col="renovacoes"></td>
+                        <td class="auto-calc">12</td>
+                        <td><input type="number" class="editable" value="30" data-col="reunioes"></td>
+                        <td><input type="number" class="editable" value="75" data-col="leads"></td>
+                        <td>
+                            <select class="status-select" data-col="status">
+                                <option value="realizado">✓ Realizado</option>
+                                <option value="andamento" selected>→ Em Andamento</option>
+                                <option value="planejado">○ Planejado</option>
+                                <option value="atrasado">✗ Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="detalhes-row" id="detalhes-marco">
+                        <td colspan="8">
+                            <h4 style="color: #D4AF37; margin-bottom: 20px; font-size: 16px;">📊 Distribuição Detalhada - Março</h4>
+                            <div class="distribuicao-grid">
+                                <div class="distribuicao-card">
+                                    <h5>💰 Modalidade</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR (Recorrente):</label>
+                                        <span>5 contratos (42%)</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>TCV (À Vista):</label>
+                                        <span>7 contratos (58%)</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📦 Por Produto (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Funil TCV:</label>
+                                        <span>6 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Posicionamento MRR:</label>
+                                        <span>3 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Funil MRR:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Combo ACELERA:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>🎯 Estratégia</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Foco:</label>
+                                        <span>TCV + início MRR</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Primeiro Combo:</label>
+                                        <span>✅ Vendido</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- ABRIL -->
+                    <tr data-month="abril">
+                        <td class="mes-nome">
+                            <div class="mes-nome-cell">
+                                <button class="expand-btn" onclick="toggleDetalhes('abril')">+</button>
+                                Abril
+                            </div>
+                        </td>
+                        <td><input type="text" class="editable" value="173" data-col="receita"></td>
+                        <td><input type="number" class="editable" value="10" data-col="contratos"></td>
+                        <td><input type="number" class="editable" value="5" data-col="renovacoes"></td>
+                        <td class="auto-calc">15</td>
+                        <td><input type="number" class="editable" value="30" data-col="reunioes"></td>
+                        <td><input type="number" class="editable" value="75" data-col="leads"></td>
+                        <td>
+                            <select class="status-select" data-col="status">
+                                <option value="realizado">✓ Realizado</option>
+                                <option value="andamento">→ Em Andamento</option>
+                                <option value="planejado" selected>○ Planejado</option>
+                                <option value="atrasado">✗ Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="detalhes-row" id="detalhes-abril">
+                        <td colspan="8">
+                            <h4 style="color: #D4AF37; margin-bottom: 20px; font-size: 16px;">📊 Distribuição Detalhada - Abril</h4>
+                            <div class="distribuicao-grid">
+                                <div class="distribuicao-card">
+                                    <h5>💰 Modalidade (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR (Recorrente):</label>
+                                        <span>4 contratos (40%)</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>TCV (À Vista):</label>
+                                        <span>6 contratos (60%)</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📦 Por Produto (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Funil TCV:</label>
+                                        <span>5 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Posicionamento MRR:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Funil MRR:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Combo ACELERA:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>🔁 Renovações Q2</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Clientes renovados:</label>
+                                        <span>5 clientes</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Taxa de sucesso:</label>
+                                        <span>100%</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Receita renovação:</label>
+                                        <span>R$ 10k/mês</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- MAIO -->
+                    <tr data-month="maio">
+                        <td class="mes-nome">
+                            <div class="mes-nome-cell">
+                                <button class="expand-btn" onclick="toggleDetalhes('maio')">+</button>
+                                Maio
+                            </div>
+                        </td>
+                        <td><input type="text" class="editable" value="194" data-col="receita"></td>
+                        <td><input type="number" class="editable" value="10" data-col="contratos"></td>
+                        <td><input type="number" class="editable" value="5" data-col="renovacoes"></td>
+                        <td class="auto-calc">15</td>
+                        <td><input type="number" class="editable" value="30" data-col="reunioes"></td>
+                        <td><input type="number" class="editable" value="75" data-col="leads"></td>
+                        <td>
+                            <select class="status-select" data-col="status">
+                                <option value="realizado">✓ Realizado</option>
+                                <option value="andamento">→ Em Andamento</option>
+                                <option value="planejado" selected>○ Planejado</option>
+                                <option value="atrasado">✗ Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="detalhes-row" id="detalhes-maio">
+                        <td colspan="8">
+                            <h4 style="color: #D4AF37; margin-bottom: 20px; font-size: 16px;">📊 Distribuição Detalhada - Maio</h4>
+                            <div class="distribuicao-grid">
+                                <div class="distribuicao-card">
+                                    <h5>💰 Modalidade (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR (Recorrente):</label>
+                                        <span>5 contratos (50%)</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>TCV (À Vista):</label>
+                                        <span>5 contratos (50%)</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📦 Por Produto (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Funil TCV:</label>
+                                        <span>4 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Posicionamento MRR:</label>
+                                        <span>3 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Funil MRR:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Estruturação Com.:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>🔁 Renovações</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Clientes renovados:</label>
+                                        <span>5 clientes</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Ticket médio:</label>
+                                        <span>R$ 2.000/mês</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- JUNHO -->
+                    <tr data-month="junho">
+                        <td class="mes-nome">
+                            <div class="mes-nome-cell">
+                                <button class="expand-btn" onclick="toggleDetalhes('junho')">+</button>
+                                Junho
+                            </div>
+                        </td>
+                        <td><input type="text" class="editable" value="229" data-col="receita"></td>
+                        <td><input type="number" class="editable" value="12" data-col="contratos"></td>
+                        <td><input type="number" class="editable" value="5" data-col="renovacoes"></td>
+                        <td class="auto-calc">17</td>
+                        <td><input type="number" class="editable" value="36" data-col="reunioes"></td>
+                        <td><input type="number" class="editable" value="90" data-col="leads"></td>
+                        <td>
+                            <select class="status-select" data-col="status">
+                                <option value="realizado">✓ Realizado</option>
+                                <option value="andamento">→ Em Andamento</option>
+                                <option value="planejado" selected>○ Planejado</option>
+                                <option value="atrasado">✗ Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="detalhes-row" id="detalhes-junho">
+                        <td colspan="8">
+                            <h4 style="color: #D4AF37; margin-bottom: 20px; font-size: 16px;">📊 Distribuição Detalhada - Junho</h4>
+                            <div class="distribuicao-grid">
+                                <div class="distribuicao-card">
+                                    <h5>💰 Modalidade (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR (Recorrente):</label>
+                                        <span>7 contratos (58%)</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>TCV (À Vista):</label>
+                                        <span>5 contratos (42%)</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📦 Por Produto (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Funil TCV:</label>
+                                        <span>4 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Posicionamento MRR:</label>
+                                        <span>4 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Funil MRR:</label>
+                                        <span>3 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Combo ACELERA:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>🎯 Transição Q2→Q3</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Foco:</label>
+                                        <span>Aumentar MRR</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>MRR/TCV ratio:</label>
+                                        <span>58%/42%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- JULHO -->
+                    <tr data-month="julho">
+                        <td class="mes-nome">
+                            <div class="mes-nome-cell">
+                                <button class="expand-btn" onclick="toggleDetalhes('julho')">+</button>
+                                Julho
+                            </div>
+                        </td>
+                        <td><input type="text" class="editable" value="267" data-col="receita"></td>
+                        <td><input type="number" class="editable" value="14" data-col="contratos"></td>
+                        <td><input type="number" class="editable" value="5" data-col="renovacoes"></td>
+                        <td class="auto-calc">19</td>
+                        <td><input type="number" class="editable" value="42" data-col="reunioes"></td>
+                        <td><input type="number" class="editable" value="105" data-col="leads"></td>
+                        <td>
+                            <select class="status-select" data-col="status">
+                                <option value="realizado">✓ Realizado</option>
+                                <option value="andamento">→ Em Andamento</option>
+                                <option value="planejado" selected>○ Planejado</option>
+                                <option value="atrasado">✗ Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="detalhes-row" id="detalhes-julho">
+                        <td colspan="8">
+                            <h4 style="color: #D4AF37; margin-bottom: 20px; font-size: 16px;">📊 Distribuição Detalhada - Julho</h4>
+                            <div class="distribuicao-grid">
+                                <div class="distribuicao-card">
+                                    <h5>💰 Modalidade (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR (Recorrente):</label>
+                                        <span>9 contratos (64%)</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>TCV (À Vista):</label>
+                                        <span>5 contratos (36%)</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📦 Por Produto (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Funil TCV:</label>
+                                        <span>4 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Posicionamento MRR:</label>
+                                        <span>5 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Funil MRR:</label>
+                                        <span>3 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Combo ACELERA:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📈 Q3 Aceleração</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Foco:</label>
+                                        <span>MRR dominante</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Volume mensal:</label>
+                                        <span>Pico do ano</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- AGOSTO -->
+                    <tr data-month="agosto">
+                        <td class="mes-nome">
+                            <div class="mes-nome-cell">
+                                <button class="expand-btn" onclick="toggleDetalhes('agosto')">+</button>
+                                Agosto
+                            </div>
+                        </td>
+                        <td><input type="text" class="editable" value="281" data-col="receita"></td>
+                        <td><input type="number" class="editable" value="12" data-col="contratos"></td>
+                        <td><input type="number" class="editable" value="4" data-col="renovacoes"></td>
+                        <td class="auto-calc">16</td>
+                        <td><input type="number" class="editable" value="36" data-col="reunioes"></td>
+                        <td><input type="number" class="editable" value="90" data-col="leads"></td>
+                        <td>
+                            <select class="status-select" data-col="status">
+                                <option value="realizado">✓ Realizado</option>
+                                <option value="andamento">→ Em Andamento</option>
+                                <option value="planejado" selected>○ Planejado</option>
+                                <option value="atrasado">✗ Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="detalhes-row" id="detalhes-agosto">
+                        <td colspan="8">
+                            <h4 style="color: #D4AF37; margin-bottom: 20px; font-size: 16px;">📊 Distribuição Detalhada - Agosto</h4>
+                            <div class="distribuicao-grid">
+                                <div class="distribuicao-card">
+                                    <h5>💰 Modalidade (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR (Recorrente):</label>
+                                        <span>7 contratos (58%)</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>TCV (À Vista):</label>
+                                        <span>5 contratos (42%)</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📦 Por Produto (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Funil TCV:</label>
+                                        <span>4 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Posicionamento MRR:</label>
+                                        <span>4 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Funil MRR:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Combo ACELERA:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Time Terceirizado:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>🔁 Renovações</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Clientes renovados:</label>
+                                        <span>4 clientes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- SETEMBRO -->
+                    <tr data-month="setembro">
+                        <td class="mes-nome">
+                            <div class="mes-nome-cell">
+                                <button class="expand-btn" onclick="toggleDetalhes('setembro')">+</button>
+                                Setembro
+                            </div>
+                        </td>
+                        <td><input type="text" class="editable" value="306" data-col="receita"></td>
+                        <td><input type="number" class="editable" value="12" data-col="contratos"></td>
+                        <td><input type="number" class="editable" value="4" data-col="renovacoes"></td>
+                        <td class="auto-calc">16</td>
+                        <td><input type="number" class="editable" value="36" data-col="reunioes"></td>
+                        <td><input type="number" class="editable" value="90" data-col="leads"></td>
+                        <td>
+                            <select class="status-select" data-col="status">
+                                <option value="realizado">✓ Realizado</option>
+                                <option value="andamento">→ Em Andamento</option>
+                                <option value="planejado" selected>○ Planejado</option>
+                                <option value="atrasado">✗ Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="detalhes-row" id="detalhes-setembro">
+                        <td colspan="8">
+                            <h4 style="color: #D4AF37; margin-bottom: 20px; font-size: 16px;">📊 Distribuição Detalhada - Setembro</h4>
+                            <div class="distribuicao-grid">
+                                <div class="distribuicao-card">
+                                    <h5>💰 Modalidade (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR (Recorrente):</label>
+                                        <span>8 contratos (67%)</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>TCV (À Vista):</label>
+                                        <span>4 contratos (33%)</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📦 Por Produto (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Funil TCV:</label>
+                                        <span>3 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Posicionamento MRR:</label>
+                                        <span>4 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Funil MRR:</label>
+                                        <span>3 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Combo ACELERA:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Time Terceirizado:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>🔁 Renovações Q3</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Clientes renovados:</label>
+                                        <span>4 clientes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- OUTUBRO -->
+                    <tr data-month="outubro">
+                        <td class="mes-nome">
+                            <div class="mes-nome-cell">
+                                <button class="expand-btn" onclick="toggleDetalhes('outubro')">+</button>
+                                Outubro
+                            </div>
+                        </td>
+                        <td><input type="text" class="editable" value="316" data-col="receita"></td>
+                        <td><input type="number" class="editable" value="10" data-col="contratos"></td>
+                        <td><input type="number" class="editable" value="4" data-col="renovacoes"></td>
+                        <td class="auto-calc">14</td>
+                        <td><input type="number" class="editable" value="30" data-col="reunioes"></td>
+                        <td><input type="number" class="editable" value="75" data-col="leads"></td>
+                        <td>
+                            <select class="status-select" data-col="status">
+                                <option value="realizado">✓ Realizado</option>
+                                <option value="andamento">→ Em Andamento</option>
+                                <option value="planejado" selected>○ Planejado</option>
+                                <option value="atrasado">✗ Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="detalhes-row" id="detalhes-outubro">
+                        <td colspan="8">
+                            <h4 style="color: #D4AF37; margin-bottom: 20px; font-size: 16px;">📊 Distribuição Detalhada - Outubro</h4>
+                            <div class="distribuicao-grid">
+                                <div class="distribuicao-card">
+                                    <h5>💰 Modalidade (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR (Recorrente):</label>
+                                        <span>6 contratos (60%)</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>TCV (À Vista):</label>
+                                        <span>4 contratos (40%)</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📦 Por Produto (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Funil TCV:</label>
+                                        <span>3 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Posicionamento MRR:</label>
+                                        <span>3 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Funil MRR:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Combo ACELERA:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Time Terceirizado:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>🎯 Q4 Consolidação</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Foco:</label>
+                                        <span>Base MRR sólida</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Renovações:</label>
+                                        <span>4 clientes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- NOVEMBRO -->
+                    <tr data-month="novembro">
+                        <td class="mes-nome">
+                            <div class="mes-nome-cell">
+                                <button class="expand-btn" onclick="toggleDetalhes('novembro')">+</button>
+                                Novembro
+                            </div>
+                        </td>
+                        <td><input type="text" class="editable" value="319" data-col="receita"></td>
+                        <td><input type="number" class="editable" value="8" data-col="contratos"></td>
+                        <td><input type="number" class="editable" value="3" data-col="renovacoes"></td>
+                        <td class="auto-calc">11</td>
+                        <td><input type="number" class="editable" value="24" data-col="reunioes"></td>
+                        <td><input type="number" class="editable" value="60" data-col="leads"></td>
+                        <td>
+                            <select class="status-select" data-col="status">
+                                <option value="realizado">✓ Realizado</option>
+                                <option value="andamento">→ Em Andamento</option>
+                                <option value="planejado" selected>○ Planejado</option>
+                                <option value="atrasado">✗ Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="detalhes-row" id="detalhes-novembro">
+                        <td colspan="8">
+                            <h4 style="color: #D4AF37; margin-bottom: 20px; font-size: 16px;">📊 Distribuição Detalhada - Novembro</h4>
+                            <div class="distribuicao-grid">
+                                <div class="distribuicao-card">
+                                    <h5>💰 Modalidade (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR (Recorrente):</label>
+                                        <span>5 contratos (62%)</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>TCV (À Vista):</label>
+                                        <span>3 contratos (38%)</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📦 Por Produto (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Funil TCV:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Posicionamento MRR:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Funil MRR:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Combo ACELERA:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Time Terceirizado:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>🔁 Renovações</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Clientes renovados:</label>
+                                        <span>3 clientes</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Preparação 2027:</label>
+                                        <span>✅ Iniciada</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- DEZEMBRO -->
+                    <tr data-month="dezembro">
+                        <td class="mes-nome">
+                            <div class="mes-nome-cell">
+                                <button class="expand-btn" onclick="toggleDetalhes('dezembro')">+</button>
+                                Dezembro
+                            </div>
+                        </td>
+                        <td><input type="text" class="editable" value="298" data-col="receita"></td>
+                        <td><input type="number" class="editable" value="6" data-col="contratos"></td>
+                        <td><input type="number" class="editable" value="3" data-col="renovacoes"></td>
+                        <td class="auto-calc">9</td>
+                        <td><input type="number" class="editable" value="18" data-col="reunioes"></td>
+                        <td><input type="number" class="editable" value="45" data-col="leads"></td>
+                        <td>
+                            <select class="status-select" data-col="status">
+                                <option value="realizado">✓ Realizado</option>
+                                <option value="andamento">→ Em Andamento</option>
+                                <option value="planejado" selected>○ Planejado</option>
+                                <option value="atrasado">✗ Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="detalhes-row" id="detalhes-dezembro">
+                        <td colspan="8">
+                            <h4 style="color: #D4AF37; margin-bottom: 20px; font-size: 16px;">📊 Distribuição Detalhada - Dezembro</h4>
+                            <div class="distribuicao-grid">
+                                <div class="distribuicao-card">
+                                    <h5>💰 Modalidade (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR (Recorrente):</label>
+                                        <span>4 contratos (67%)</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>TCV (À Vista):</label>
+                                        <span>2 contratos (33%)</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>📦 Por Produto (Novos)</h5>
+                                    <div class="distribuicao-item">
+                                        <label>Funil TCV:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Posicionamento MRR:</label>
+                                        <span>2 contratos</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Funil MRR:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Time Terceirizado:</label>
+                                        <span>1 contrato</span>
+                                    </div>
+                                </div>
+                                <div class="distribuicao-card">
+                                    <h5>🎊 Fechamento 2026</h5>
+                                    <div class="distribuicao-item">
+                                        <label>MRR Final:</label>
+                                        <span>R$ 265k/mês</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Meta atingida:</label>
+                                        <span>✅ 100%</span>
+                                    </div>
+                                    <div class="distribuicao-item">
+                                        <label>Renovações:</label>
+                                        <span>3 clientes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- TOTAL -->
+                    <tr class="total-row">
+                        <td>TOTAL 2026</td>
+                        <td id="totalReceita">3.092</td>
+                        <td id="totalContratos">118</td>
+                        <td id="totalRenovacoes">38</td>
+                        <td id="totalMovimentos">156</td>
+                        <td id="totalReunioes">348</td>
+                        <td id="totalLeads">870</td>
+                        <td>–</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Composição de Produtos -->
+        <div class="section">
+            <div class="section-title">Composição de Produtos (118 Contratos)</div>
+            <div class="produto-grid">
+                <div class="produto-card">
+                    <h4>🚀 Funil de Vendas TCV</h4>
+                    <div class="detail">
+                        <label>Contratos:</label>
+                        <span>57 (48%)</span>
+                    </div>
+                    <div class="detail">
+                        <label>Ticket:</label>
+                        <span>R$ 10.800</span>
+                    </div>
+                    <div class="detail">
+                        <label>Receita:</label>
+                        <span>R$ 615.600</span>
+                    </div>
+                    <div class="detail">
+                        <label>Tipo:</label>
+                        <span>À vista (caixa)</span>
+                    </div>
+                </div>
+
+                <div class="produto-card">
+                    <h4>🔄 Funil de Vendas MRR</h4>
+                    <div class="detail">
+                        <label>Contratos:</label>
+                        <span>19 (16%)</span>
+                    </div>
+                    <div class="detail">
+                        <label>Ticket:</label>
+                        <span>R$ 1.800/mês</span>
+                    </div>
+                    <div class="detail">
+                        <label>Receita:</label>
+                        <span>R$ 205.200</span>
+                    </div>
+                    <div class="detail">
+                        <label>Tipo:</label>
+                        <span>Recorrente (6 meses)</span>
+                    </div>
+                </div>
+
+                <div class="produto-card">
+                    <h4>💎 Posicionamento MRR</h4>
+                    <div class="detail">
+                        <label>Contratos:</label>
+                        <span>24 (20%)</span>
+                    </div>
+                    <div class="detail">
+                        <label>Ticket:</label>
+                        <span>R$ 2.500/mês</span>
+                    </div>
+                    <div class="detail">
+                        <label>Receita:</label>
+                        <span>R$ 360.000</span>
+                    </div>
+                    <div class="detail">
+                        <label>Tipo:</label>
+                        <span>Recorrente (6 meses)</span>
+                    </div>
+                </div>
+
+                <div class="produto-card">
+                    <h4>🚀 Combo ACELERA ADV</h4>
+                    <div class="detail">
+                        <label>Contratos:</label>
+                        <span>9 (8%)</span>
+                    </div>
+                    <div class="detail">
+                        <label>Ticket:</label>
+                        <span>R$ 25.800 ou R$ 4.3k/mês</span>
+                    </div>
+                    <div class="detail">
+                        <label>Receita:</label>
+                        <span>R$ 464.400</span>
+                    </div>
+                    <div class="detail">
+                        <label>Tipo:</label>
+                        <span>Posic. + Funil (6 meses)</span>
+                    </div>
+                </div>
+
+                <div class="produto-card">
+                    <h4>🔁 Renovações</h4>
+                    <div class="detail">
+                        <label>Contratos:</label>
+                        <span>38 clientes</span>
+                    </div>
+                    <div class="detail">
+                        <label>Ticket Médio:</label>
+                        <span>R$ 2.000/mês</span>
+                    </div>
+                    <div class="detail">
+                        <label>Receita:</label>
+                        <span>R$ 456.000</span>
+                    </div>
+                    <div class="detail">
+                        <label>Taxa:</label>
+                        <span>84% (38 de 45)</span>
+                    </div>
+                </div>
+
+                <div class="produto-card">
+                    <h4>📊 Distribuição Real</h4>
+                    <div class="detail">
+                        <label>Funil:</label>
+                        <span>65% da receita</span>
+                    </div>
+                    <div class="detail">
+                        <label>Posicionamento:</label>
+                        <span>35% da receita</span>
+                    </div>
+                    <div class="detail">
+                        <label>Mix MRR/TCV:</label>
+                        <span>57% / 43%</span>
+                    </div>
+                    <div class="detail">
+                        <label>Combo a cada:</label>
+                        <span>10 contratos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle detalhes do mês
+        function toggleDetalhes(mes) {
+            const detalhesRow = document.getElementById(`detalhes-${mes}`);
+            const btn = event.target;
+            
+            detalhesRow.classList.toggle('visible');
+            btn.classList.toggle('active');
+            
+            // Salvar estado no localStorage
+            const estados = JSON.parse(localStorage.getItem('detalhesAbertos') || '{}');
+            estados[mes] = detalhesRow.classList.contains('visible');
+            localStorage.setItem('detalhesAbertos', JSON.stringify(estados));
+        }
+
+        // Restaurar estados dos dropdowns ao carregar
+        window.addEventListener('DOMContentLoaded', () => {
+            const estados = JSON.parse(localStorage.getItem('detalhesAbertos') || '{}');
+            for (const [mes, aberto] of Object.entries(estados)) {
+                if (aberto) {
+                    const detalhesRow = document.getElementById(`detalhes-${mes}`);
+                    const row = document.querySelector(`[data-month="${mes}"]`);
+                    const btn = row.querySelector('.expand-btn');
+                    
+                    detalhesRow.classList.add('visible');
+                    btn.classList.add('active');
+                }
+            }
+        });
+
+        // Função para calcular totais automaticamente
+        function calcularTotais() {
+            let totalReceita = 0;
+            let totalContratos = 0;
+            let totalRenovacoes = 0;
+            let totalReunioes = 0;
+            let totalLeads = 0;
+
+            document.querySelectorAll('tbody tr[data-month]').forEach(row => {
+                const receita = parseFloat(row.querySelector('[data-col="receita"]').value) || 0;
+                const contratos = parseInt(row.querySelector('[data-col="contratos"]').value) || 0;
+                const renovacoes = parseInt(row.querySelector('[data-col="renovacoes"]').value) || 0;
+                const reunioes = parseInt(row.querySelector('[data-col="reunioes"]').value) || 0;
+                const leads = parseInt(row.querySelector('[data-col="leads"]').value) || 0;
+
+                totalReceita += receita;
+                totalContratos += contratos;
+                totalRenovacoes += renovacoes;
+                totalReunioes += reunioes;
+                totalLeads += leads;
+
+                // Atualizar total de movimentos da linha
+                const totalMov = contratos + renovacoes;
+                row.querySelector('.auto-calc').textContent = totalMov;
+            });
+
+            document.getElementById('totalReceita').textContent = totalReceita.toFixed(0);
+            document.getElementById('totalContratos').textContent = totalContratos;
+            document.getElementById('totalRenovacoes').textContent = totalRenovacoes;
+            document.getElementById('totalMovimentos').textContent = totalContratos + totalRenovacoes;
+            document.getElementById('totalReunioes').textContent = totalReunioes;
+            document.getElementById('totalLeads').textContent = totalLeads;
+        }
+
+        // Auto-save ao editar
+        document.querySelectorAll('.editable, .status-select').forEach(input => {
+            input.addEventListener('change', () => {
+                calcularTotais();
+                salvarDados();
+            });
+        });
+
+        // Salvar dados no localStorage
+        function salvarDados() {
+            const dados = {};
+            document.querySelectorAll('tbody tr[data-month]').forEach(row => {
+                const mes = row.dataset.month;
+                dados[mes] = {
+                    receita: row.querySelector('[data-col="receita"]').value,
+                    contratos: row.querySelector('[data-col="contratos"]').value,
+                    renovacoes: row.querySelector('[data-col="renovacoes"]').value,
+                    reunioes: row.querySelector('[data-col="reunioes"]').value,
+                    leads: row.querySelector('[data-col="leads"]').value,
+                    status: row.querySelector('[data-col="status"]').value
+                };
+            });
+            localStorage.setItem('metasMensais', JSON.stringify(dados));
+        }
+
+        // Carregar dados salvos
+        function carregarDados() {
+            const dados = JSON.parse(localStorage.getItem('metasMensais') || '{}');
+            for (const [mes, valores] of Object.entries(dados)) {
+                const row = document.querySelector(`[data-month="${mes}"]`);
+                if (row) {
+                    if (valores.receita) row.querySelector('[data-col="receita"]').value = valores.receita;
+                    if (valores.contratos) row.querySelector('[data-col="contratos"]').value = valores.contratos;
+                    if (valores.renovacoes) row.querySelector('[data-col="renovacoes"]').value = valores.renovacoes;
+                    if (valores.reunioes) row.querySelector('[data-col="reunioes"]').value = valores.reunioes;
+                    if (valores.leads) row.querySelector('[data-col="leads"]').value = valores.leads;
+                    if (valores.status) row.querySelector('[data-col="status"]').value = valores.status;
+                }
+            }
+            calcularTotais();
+        }
+
+        // Inicializar
+        window.addEventListener('DOMContentLoaded', () => {
+            carregarDados();
+        });
+    </script>
+</body>
+</html>
